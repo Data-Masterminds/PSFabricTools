@@ -16,6 +16,7 @@
     Sampler                     = 'latest'
     'MicrosoftPowerBIMgmt.Profile' = 'latest'
     'Sampler.GitHubTasks'         = 'latest'
+    PowerShellForGitHub = 'latest'
 
 }
 
