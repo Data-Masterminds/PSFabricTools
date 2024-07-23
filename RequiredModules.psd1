@@ -14,6 +14,7 @@
     ModuleBuilder               = 'latest'
     ChangelogManagement         = 'latest'
     Sampler                     = 'latest'
+    'MicrosoftPowerBIMgmt.Profile' = 'latest'
     'Sampler.GitHubTasks'         = 'latest'
 
 }
