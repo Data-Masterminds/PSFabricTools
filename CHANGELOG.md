@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Support added to remove restore points with Remove-PSFabricRecoveryPoint
 - Support added to recover to restore points with Restore-PSFabricRecoveryPoint
 - add `MicrosoftPowerBIMgmt.Profile` as required module
-- add `Sampler.GitHubTasks` to required modules for build
+- add `Sampler.GitHubTasks` to required modules for build with quotes
 
 ### Changed
 
