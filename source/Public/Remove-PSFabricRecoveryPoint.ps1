@@ -18,9 +18,14 @@ This is the workspace GUID in which the data warehouse resides.
 The GUID for the data warehouse which we want to retrieve restore points for.
 
 .EXAMPLE
-#TODO: better examples
-$restorePoint = Get-PSF...
-Remove-PSFabricRecoveryPoint - CreateTime $restorePoint
+PS> Remove-PSFabricRecoveryPoint -CreateTime '2024-07-23T11:20:26Z'
+
+Remove a specific restore point from a Fabric Data Warehouse that has been set using Set-PSFabricConfig.
+
+.EXAMPLE
+PS> Remove-PSFabricRecoveryPoint -CreateTime '2024-07-23T11:20:26Z' -WorkspaceGUID 'GUID-GUID-GUID-GUID' -DataWarehouseGUID 'GUID-GUID-GUID-GUID'
+
+Remove a specific restore point from a Fabric Data Warehouse, specifying the workspace and data warehouse GUIDs.
 
 .NOTES
 General notes

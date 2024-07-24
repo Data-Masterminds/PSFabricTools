@@ -21,9 +21,14 @@ The GUID for the data warehouse which we want to retrieve restore points for.
 Wait for the restore to complete before returning.
 
 .EXAMPLE
-#TODO: fix this
-$restorePoint = Get-PSF...
-Restore-PSFabric ...
+PS> Restore-PSFabricRecoveryPoint -CreateTime '2024-07-23T11:20:26Z'
+
+Restore a Fabric Data Warehouse to a specific restore point that has been set using Set-PSFabricConfig.
+
+.EXAMPLE
+PS> Restore-PSFabricRecoveryPoint -CreateTime '2024-07-23T11:20:26Z' -WorkspaceGUID 'GUID-GUID-GUID-GUID' -DataWarehouseGUID 'GUID-GUID-GUID-GUID'
+
+Restore a Fabric Data Warehouse to a specific restore point, specifying the workspace and data warehouse GUIDs.
 
 #>
 function Restore-PSFabricRecoveryPoint {
@@ -40,7 +45,6 @@ function Restore-PSFabricRecoveryPoint {
         [switch]$Wait
 
     )
-    #TODO implement a wait function with progress?
 
     #region handle the config parameters
     if($WorkspaceGUID) {

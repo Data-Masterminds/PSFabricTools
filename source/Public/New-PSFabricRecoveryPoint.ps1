@@ -15,7 +15,14 @@ This is the workspace GUID in which the data warehouse resides.
 The GUID for the data warehouse which we want to retrieve restore points for.
 
 .EXAMPLE
-New-PSFabricRecoveryPoint
+PS> New-PSFabricRecoveryPoint
+
+Create a new recovery point for the data warehouse specified in the configuration.
+
+.EXAMPLE
+PS> New-PSFabricRecoveryPoint -WorkspaceGUID 'GUID-GUID-GUID-GUID' -DataWarehouseGUID 'GUID-GUID-GUID-GUID'
+
+Create a new recovery point for the specified data warehouse, in the specified workspace.
 
 #>
 function New-PSFabricRecoveryPoint {
