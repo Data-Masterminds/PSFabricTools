@@ -1,11 +1,10 @@
-Describe "Get-PSFabricUri Unit Tests" -Tag 'UnitTests' -Skip {
+Describe "Get-PSFabricConfig Unit Tests" -Tag 'UnitTests' {
     Context "Validate parameters" {
         It "Should only contain our specific parameters" {
-            $CommandName = 'Get-PSFabricUri'
+            $CommandName = 'Get-PSFabricConfig'
             [array]$params = ([Management.Automation.CommandMetaData]$ExecutionContext.SessionState.InvokeCommand.GetCommand($CommandName, 'Function')).Parameters.Keys
-            [object[]]$knownParameters = 'SqlInstance', 'SqlCredential', 'Database', 'Name', 'InputObject', 'EnableException', 'Value'
+            [object[]]$knownParameters = 'ConfigName'
             Compare-Object -ReferenceObject $knownParameters -DifferenceObject $params | Should -BeNullOrEmpty
         }
     }
 }
-#TODO: Fix test for internal function
