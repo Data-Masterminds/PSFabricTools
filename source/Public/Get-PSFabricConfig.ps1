@@ -11,7 +11,7 @@ The name of the configuration to retrieve.
 .EXAMPLE
 PS> Get-PSFabricConfig
 
-Gets all the configuration values for the PSFabricTools module.
+Gets all the configuration values for the PSFabricTools module and outputs them
 
 .EXAMPLE
 PS> Get-PSFabricConfig -ConfigName BaseUrl
