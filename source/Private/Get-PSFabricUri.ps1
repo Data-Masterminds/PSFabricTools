@@ -53,7 +53,7 @@ function Get-PSFabricUri {
             #     Write-PSFMessage -Level Info -Message ('Successfully connected to PowerBI')
             # }
         } catch {
-            throw 'Not able to get a token - and our attempt to run Connect-PowerBIServiceAccount did not succeed - manually try and run Connect-PowerBIServiceAccount'
+            throw 'Not able to get a token - manually try and run Connect-PowerBIServiceAccount'
         }
     }
 

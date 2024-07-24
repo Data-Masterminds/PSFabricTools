@@ -18,9 +18,14 @@ This is the workspace GUID in which the data warehouse resides.
 The GUID for the data warehouse which we want to retrieve restore points for.
 
 .EXAMPLE
-#TODO: better examples
-$restorePoint = Get-PSF...
-Remove-PSFabricRecoveryPoint - CreateTime $restorePoint
+PS> Remove-PSFabricRecoveryPoint -CreateTime '2024-07-23T11:20:26Z'
+
+Remove a specific restore point from a Fabric Data Warehouse that has been set using Set-PSFabricConfig.
+
+.EXAMPLE
+PS> Remove-PSFabricRecoveryPoint -CreateTime '2024-07-23T11:20:26Z' -WorkspaceGUID 'GUID-GUID-GUID-GUID' -DataWarehouseGUID 'GUID-GUID-GUID-GUID'
+
+Remove a specific restore point from a Fabric Data Warehouse, specifying the workspace and data warehouse GUIDs.
 
 .NOTES
 General notes
@@ -39,23 +44,16 @@ function Remove-PSFabricRecoveryPoint {
         #TODO - implement piping from get? or a way of interactively choosing points to remove
         )
 
-
     #region handle the config parameters
-    if($WorkspaceGUID) {
-        Set-PSFabricConfig -WorkspaceGUID $WorkspaceGUID
-    } else {
+    if(-not $WorkspaceGUID) {
         $WorkspaceGUID = Get-PSFConfigValue -FullName PSFabricTools.WorkspaceGUID
     }
 
-    if($DataWarehouseGUID) {
-        Set-PSFabricConfig -DataWarehouseGUID $DataWarehouseGUID
-    } else {
+    if(-not $DataWarehouseGUID) {
         $DataWarehouseGUID = Get-PSFConfigValue -FullName PSFabricTools.DataWarehouseGUID
     }
 
-    if($BaseUrl) {
-        Set-PSFabricConfig -BaseUrl $BaseUrl
-    } else {
+    if(-not $BaseUrl) {
         $BaseUrl = Get-PSFConfigValue -FullName PSFabricTools.BaseUrl
     }
 
@@ -65,7 +63,6 @@ function Remove-PSFabricRecoveryPoint {
         Write-PSFMessage -Level Verbose -Message ('WorkspaceGUID: {0}; DataWarehouseGUID: {1}; BaseUrl: {2}' -f $WorkspaceGUID, $DataWarehouseGUID, $BaseUrl)
     }
     #endregion
-
 
     if ($PSCmdlet.ShouldProcess("Remove recovery point for a Fabric Data Warehouse")) {
         #region setting up the API call

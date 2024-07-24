@@ -24,7 +24,7 @@ Filter the results to only include restore points of this type.
 The specific unique time of the restore point to remove. Get this from Get-PSFabricRecoveryPoint.
 
 .EXAMPLE
-Get-PSFabricRecoveryPoint -WorkspaceGUID 'GUID-GUID-GUID-GUID' -DataWarehouseGUID 'GUID-GUID-GUID-GUID'
+PS> Get-PSFabricRecoveryPoint -WorkspaceGUID 'GUID-GUID-GUID-GUID' -DataWarehouseGUID 'GUID-GUID-GUID-GUID'
 
 Gets all the available recovery points for the specified data warehouse, in the specified workspace.
 
@@ -51,21 +51,15 @@ function Get-PSFabricRecoveryPoint {
     )
 
     #region handle the config parameters
-    if($WorkspaceGUID) {
-        Set-PSFabricConfig -WorkspaceGUID $WorkspaceGUID
-    } else {
+    if(-not $WorkspaceGUID) {
         $WorkspaceGUID = Get-PSFConfigValue -FullName PSFabricTools.WorkspaceGUID
     }
 
-    if($DataWarehouseGUID) {
-        Set-PSFabricConfig -DataWarehouseGUID $DataWarehouseGUID
-    } else {
+    if(-not $DataWarehouseGUID) {
         $DataWarehouseGUID = Get-PSFConfigValue -FullName PSFabricTools.DataWarehouseGUID
     }
 
-    if($BaseUrl) {
-        Set-PSFabricConfig -BaseUrl $BaseUrl
-    } else {
+    if(-not $BaseUrl) {
         $BaseUrl = Get-PSFConfigValue -FullName PSFabricTools.BaseUrl
     }
 
