@@ -14,13 +14,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - add `Sampler.GitHubTasks` to required modules for build
 - add `Sampler.GitHubTasks` to required modules for build
 - Unit tests for parameters
-- 
 
 ### Changed
 
 - Change from using Alias to Connect-PowerBIServiceAccount
 - Don't automatically save config properties when passed into commands
 - Change order of parameters for Set-PSFabricConfig
+- gitversion config
 
 ### Deprecated
 
