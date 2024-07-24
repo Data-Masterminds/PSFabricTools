@@ -21,6 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Don't automatically save config properties when passed into commands
 - Change order of parameters for Set-PSFabricConfig
 - gitversion config
+- update deploy-module workflow
 
 ### Deprecated
 
