@@ -47,21 +47,15 @@ function Restore-PSFabricRecoveryPoint {
     )
 
     #region handle the config parameters
-    if($WorkspaceGUID) {
-        Set-PSFabricConfig -WorkspaceGUID $WorkspaceGUID
-    } else {
+    if(-not $WorkspaceGUID) {
         $WorkspaceGUID = Get-PSFConfigValue -FullName PSFabricTools.WorkspaceGUID
     }
 
-    if($DataWarehouseGUID) {
-        Set-PSFabricConfig -DataWarehouseGUID $DataWarehouseGUID
-    } else {
+    if(-not $DataWarehouseGUID) {
         $DataWarehouseGUID = Get-PSFConfigValue -FullName PSFabricTools.DataWarehouseGUID
     }
 
-    if($BaseUrl) {
-        Set-PSFabricConfig -BaseUrl $BaseUrl
-    } else {
+    if(-not $BaseUrl) {
         $BaseUrl = Get-PSFConfigValue -FullName PSFabricTools.BaseUrl
     }
 

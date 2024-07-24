@@ -36,21 +36,15 @@ function New-PSFabricRecoveryPoint {
     )
 
     #region handle the config parameters
-    if($WorkspaceGUID) {
-        Set-PSFabricConfig -WorkspaceGUID $WorkspaceGUID
-    } else {
+    if(-not $WorkspaceGUID) {
         $WorkspaceGUID = Get-PSFConfigValue -FullName PSFabricTools.WorkspaceGUID
     }
 
-    if($DataWarehouseGUID) {
-        Set-PSFabricConfig -DataWarehouseGUID $DataWarehouseGUID
-    } else {
+    if(-not $DataWarehouseGUID) {
         $DataWarehouseGUID = Get-PSFConfigValue -FullName PSFabricTools.DataWarehouseGUID
     }
 
-    if($BaseUrl) {
-        Set-PSFabricConfig -BaseUrl $BaseUrl
-    } else {
+    if(-not $BaseUrl) {
         $BaseUrl = Get-PSFConfigValue -FullName PSFabricTools.BaseUrl
     }
 
@@ -60,7 +54,6 @@ function New-PSFabricRecoveryPoint {
         Write-PSFMessage -Level Verbose -Message ('WorkspaceGUID: {0}; DataWarehouseGUID: {1}; BaseUrl: {2}' -f $WorkspaceGUID, $DataWarehouseGUID, $BaseUrl)
     }
     #endregion
-
 
     if ($PSCmdlet.ShouldProcess("Create a recovery point for a Fabric Data Warehouse")) {
         #region setting up the API call
